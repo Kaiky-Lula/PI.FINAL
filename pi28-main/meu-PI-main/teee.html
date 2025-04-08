@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PI</title>
+    <!-- Link para Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        /* Reset de margens e preenchimentos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+ 
+        /* Estilo do cabeçalho */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #eeca06;
+            padding: 5px 6px;
+            color: #fff;
+            position: relative;
+        }
+ 
+        /* Estilo do logotipo */
+        .logo img {
+            height: 100px; /* Tamanho do logotipo */
+            margin-left: 30px;
+        }
+ 
+        /* Estilo dos links do menu */
+        .menu {
+            display: flex;
+            list-style: none;
+            
+        }
+ 
+        .menu li {
+            margin: 0 15px;
+        }
+ 
+        .menu li a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: left;
+           
+        }
+ 
+ 
+        /* Ícones no menu (apenas para Favoritos, Carrinho e Login) */
+        .menu li.icon-only a {
+            font-size: 33px; /* Tamanho dos ícones */
+            margin-top: 30%;
+        }
+
+
+        .icon-only:hover{
+            transform: scale(1.25);
+        }
+
+        
+        .number {
+        display: flex;
+        margin-top: 5%;
+        color: black;
+        
+        }
+ 
+        /* Estilo da barra de pesquisa */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 7%;
+            margin-left: 250px;
+            
+        }
+ 
+        .search-bar input[type="text"] {
+            padding: 7px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            width: 400px;
+        
+        }
+ 
+        .search-bar button {
+            margin-left: 7px;
+            padding: 7px 7px;
+            border: none;
+            background-color:black;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .botao-pesquisa:hover{
+            transform: scale(1.10);
+        }
+
+
+ 
+        /* Toggle do menu para mobile */
+        .menu-toggle {
+            display: none; /* Esconde o ícone do menu em desktop */
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+        }
+ 
+        /* Esconde o checkbox que controla o menu mobile */
+        #menu-mobile {
+            display: none;
+        }
+ 
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            /* Ajuste para exibir o ícone do menu em mobile */
+            .menu-toggle {
+                display: block;
+            }
+ 
+            /* Esconde o menu padrão e barra de pesquisa em mobile */
+            .menu,
+            .search-bar {
+                display: none;
+            }
+ 
+            /* Exibe o menu em coluna ao ativar o menu mobile */
+            #menu-mobile:checked ~ nav .menu {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #333;
+                padding: 10px 0;
+            }
+ 
+            .menu li {
+                margin: 10px 0;
+            }
+        }
+ 
+                .header {
+        background-color: #f1f1f1;
+        padding: 20px;
+        text-align: center;
+        }
+ 
+       
+        .topnav {
+        overflow: hidden;
+        background-color: black;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+       
+        
+       
+        
+        }
+ 
+       
+        .topnav a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: left;
+        padding: 10px 40px;
+        text-decoration: none;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        
+        }
+ 
+        
+        .topnav a:hover {
+        background-color: #eeca06;
+        color: white;
+        }
+
+        .music{
+            background-color:black;
+          
+        
+        }
+
+        .music :hover{
+            background-color: #eeca06;
+            color: white;
+            cursor: pointer;
+        }
+
+      
+ 
+        
+        .column {
+        float: left;
+        padding: 10px;
+        }
+ 
+    
+        .column.side {
+        width: 25%;
+        }
+ 
+        
+        .column.middle {
+        width: 50%;
+        }
+ 
+        
+        .row::after {
+        content: "";
+        display: table;
+        clear: both;
+        }
+ 
+      
+        @media screen and (max-width: 600px) {
+        .column.side, .column.middle {
+            width: 100%;
+        }
+        }
+
+
+        .carousel-item img {
+    width: 80%; /* Torna a imagem responsiva */
+    height: 500px; /* Altura fixa para as imagens */
+    display: flex;
+    margin-left: 10%;
+    
+}
+
+
+.inform{
+    background-color: #eeca06;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.frete{
+    height: 100px;
+    margin-left: 10%;
+    display: flex;
+    margin-top: 20px;  
+}
+
+.icon-frete h4{
+    
+    font-size: 20px;
+    margin-left: 250px;
+    margin-top: -5%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card{
+    height: 90px;
+    margin-left: 58%;
+    margin-top: -5%;
+    display: flex;
+}
+
+.icon-card h4{
+    margin-left: 900px;
+    font-size: 20px;
+    margin-top: -4%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.timbre h4{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.timbre{
+    background-color:white;
+    text-align: center;
+
+}
+
+.timbre h4{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.teclado{
+    width: 10%;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+    border-radius: 50rem;
+    border: 4px solid;
+    height: 100px;
+}
+
+.bateria{
+height: 100px;
+    width: 10%;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+    border-radius: 50rem;
+    border: 4px solid;
+}
+
+.violao{
+    cursor: pointer;
+    height: 100px;
+    width: 10%;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+    border-radius: 50rem;
+    border: 4px solid;
+}
+
+.guitarra{
+    height: 100px;
+    width: 10%;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+    border-radius: 50rem;
+    border: 4px solid;
+}
+
+.teclado:hover{
+    transform: scale(1.25);
+}
+
+.bateria:hover{
+    transform: scale(1.10);
+}
+
+.violao:hover{
+    transform: scale(1.10);
+}
+
+.guitarra:hover{
+    transform: scale(1.10);
+}
+
+
+
+
+
+
+
+      
+ 
+      
+    </style>
+</head>
+<body>
+ 
+<header>
+   
+    <header>
+       
+        <div class="logo">
+            <img src="Imagem1-removebg-preview (1).png" alt="Logotipo">
+        </div>
+     
+       
+        <input type="checkbox" id="menu-mobile">
+        <label for="menu-mobile" class="menu-toggle">&#9776;</label>    
+     
+       
+        <div class="search-bar">
+            <input type="text" placeholder="Pesquisar...">
+            <button class="botao-pesquisa">Buscar</button>
+        </div>
+    </header>
+        <ul class="menu">
+           
+            <!-- Área de itens extras: Favoritos, Carrinho e Login apenas com ícones -->
+            <li class="icon-only"><a href="#"><i class="fas fa-heart"></i></a></li>
+            <li class="icon-only"><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+            <li class="icon-only"><a href="#"><i class="fas fa-user"></i></a></li>
+        </ul>
+        
+    </nav>
+    <span class="number"><b>(11)970584812</b></span>
+
+ 
+</header>
+ 
+  <div class="topnav">
+    <a href="#">Cordas</a>
+    <a href="#">Sopro</a>
+    <a href="#">Percussão</a>
+    <a href="#">Teclas</a>
+  </div>
+
+
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicadores -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+ 
+    <!-- Slides -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="Categoria_Cordas.webp" alt="Imagem 1">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Frete</h5>
+                <p>Aproveite já</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="1730382270_banner_ms_black_frriday_-_2024.webp" alt="Imagem 2">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Lançamento</h5>
+                <p>Ótima Tecnologia</p>
+            </div>
+        </div>
+     
+    </div>
+ 
+    <!-- Controles -->
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Próximo</span>
+    </a>
+</div>
+ 
+<!-- Scripts do Bootstrap e jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<div class="inform">
+<section class="icon-frete">
+ <img class="frete" src="shipping_814995.png" alt="">
+ <h4> <b>Frete grátis para todo o Brasil</b></h4>
+
+ <section class="icon-card">
+ <img class="card" src="credit-card_5794665-removebg-preview.png" alt="">
+ <h4> <b>Parcelamos em até 12x sem juros</b></h4>
+</section>
+</div>
+
+<div class="timbre">
+    <h4><b>Qual é o seu timbre?</b></h4>
+
+    <img class="teclado" src="images.jfif" alt="">
+    <img class="bateria" src="transferir (2).jfif" alt="">
+    <img class="violao" src="transferir (1).jfif" alt="">
+    <img class="guitarra" src="transferir.jfif" alt="">
+
+
+</div>
+ 
+ 
+ 
+</body>
+</html>
+ 
+ 
+ 
